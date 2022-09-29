@@ -26,6 +26,19 @@ function merge(arr1, arr2){
     return results;
 }
 
-function mergeSort() {}
+
+// mergeSort
+// Implement the merge sort algorithm. Given an array, this algorithm will sort the values in the array. Here’s some guidance for how merge sort should work:
+// Break up the array into halves until you can compare one value with another
+// Once you have smaller sorted arrays, merge those with other sorted pairs until you are back at the full length of the array
+// Once the array is merged back together, return the merged (and sorted!) array
+// In order to implement this function, you’ll also need to implement a merge function that takes in two sorted arrays and returns a new sorted array. You implemented this function in the previous exercise, so use that function!
+function mergeSort(arr){
+    if(arr.length <= 1) return arr;
+    const middle = Math.floor(arr.length / 2);
+    const leftArr = mergeSort(arr.slice(0, middle));
+    const rightArr = mergeSort(arr.slice(middle));
+    return merge(leftArr, rightArr);
+}
 
 module.exports = { merge, mergeSort};
